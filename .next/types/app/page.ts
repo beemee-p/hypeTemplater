@@ -1,4 +1,4 @@
-// File: /Users/yuna/Dev/hypeTemplater/src/app/page.tsx
+// File: /Users/soo/Desktop/hypeTemplater/src/app/page.tsx
 import * as entry from '../../../src/app/page'
 import type { ResolvingMetadata } from 'next/dist/lib/metadata/types/metadata-interface'
 

@@ -56,8 +56,73 @@ structure
 
 - plan + db structure setting
   - [ ] 필요한 기능 나열
+    - 메인 페이지
+      헤더 - GNB, 로그인
+      컨텐츠 - 포폴 리스트
+      푸터
+        공유하기 kakao SDK, facebook
+      상단으로가기버튼
+      다크모드버튼
+      
+    - 상세페이지
+      무한스크롤(?) 파이어베이스에서 커서 관리 가능한지 리서치 필요
+      템플릿 뷰어
+      댓글
+      더보기리스트
+      
+    - 에디팅페이지
+      파일(이미지) 업로드기능
+      텍스트 에디팅 기능
+
+    - 로그인 페이지
+      소셜 로그인 기능
+    
+    - 마이 페이지
+      탈퇴기능 
+      나의 포트폴리오 리스트 보기 기능 (CRUD)
+
   - [ ] 공통 컴포넌트 구현
+    - 버튼
+      공유버튼, 상단으로가기버튼, 다크모드 버튼, 일반 텍스트 버튼들...
+    - 아이콘
+      공유아이콘, 화살표아이콘, 햄버거(메뉴바), 다크모드 아이콘, 
+
   - [ ] setting db model (User, Portfolio, \*Tempalte ...)
+    - User
+      uid: string;
+      name: string;
+      password(???): string
+      userRole: 'admin' | 'designer'
+      useProfile
+        phone: number;
+        email: string;
+
+    - Portfolio
+      user: User;
+      id: number;
+      createdAt: Date;
+      deletedAt: number;
+      updatedAt: Date;
+      title: string;
+      template: Template[];
+      thumbnail: Thumbnail;
+      comments: Comment[];
+
+    - Thumbnail 
+      !TODO File 처리 Firebase 리서치 필요!
+    
+    - Comment
+      content: string;
+      id: number;
+      createdAt: Date;
+      updatedAt: Date;
+      deletedAt: number;
+      portfolioID: number;
+      user: User;
+    
+    - Template
+      리서치 필요 .. 
+
 
 ## 3rd Week
 

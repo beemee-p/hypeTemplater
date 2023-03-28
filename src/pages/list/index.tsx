@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import { ReactElement } from "react";
 
 const PortfolioList = (props: any): ReactElement => {
   return <div>{props.portfolios.map((i: any) => i.title)}</div>;
@@ -11,6 +11,7 @@ export async function getServerSideProps() {
     return { props: { portfolios: data } };
   } catch (err) {
     console.error(err);
+    return { props: { portfolios: [] } };
   }
 }
 export default PortfolioList;

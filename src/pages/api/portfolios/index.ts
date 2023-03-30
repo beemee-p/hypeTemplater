@@ -1,22 +1,9 @@
-<<<<<<< HEAD
-import {
-  collection,
-  doc,
-  getDoc,
-  getDocs,
-  Firestore,
-} from "firebase/firestore";
-import { NextApiRequest, NextApiResponse } from "next";
-import { db } from "../firebase/ClientApp";
-
-=======
 import { collection, getDoc, getDocs, Firestore } from 'firebase/firestore';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { db } from '../firebase/ClientApp';
->>>>>>> update portfolio list api
 export default async function GET(req: NextApiRequest, res: NextApiResponse) {
   const getPortfolioList = async (db: Firestore) => {
-    const portfolioCol = collection(db, "portfolio");
+    const portfolioCol = collection(db, 'portfolio');
     const portfolioSnapshot = await getDocs(portfolioCol);
     const portfolioList = await Promise.all(
       portfolioSnapshot.docs.map(async (doc) => {

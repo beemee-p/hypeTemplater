@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-import { ReactElement } from "react";
-=======
 import { ReactElement } from 'react';
 import styled from 'styled-components';
 import { Portfolio } from '@/model/Portfolio';
->>>>>>> update portfolio list api
 
 interface PortfolioListProps {
   portfolios: Portfolio[];

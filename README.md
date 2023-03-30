@@ -86,10 +86,20 @@ structure
 
   - [x] 공통 컴포넌트 구현
 
-    - 버튼
-      공유버튼, 상단으로가기버튼, 다크모드 버튼, 일반 텍스트 버튼들...
-    - 아이콘
-      공유아이콘, 화살표아이콘, 햄버거(메뉴바), 다크모드 아이콘,
+    - [] 버튼
+      - [ ] 공유버튼
+      - [ ] 상단으로가기버튼
+      - [ ] 다크모드 버튼
+      - [ ] 일반 텍스트 버튼들...
+    - [ ] 아이콘
+      - [ ] 공유아이콘
+      - [ ] 화살표아이콘
+      - [ ] 햄버거(메뉴바)
+      - [ ] 다크모드 아이콘
+    - [ ] 이미지
+      - [ ] Grid
+      - [ ] RatioImage
+      - [ ] Image
 
   - [x] setting db model (User, Portfolio, \*Tempalte ...)
 
@@ -138,7 +148,7 @@ structure
 
 - firebase api connect
   - [ ] firebase (login auth, get, update, new, delete)
-  - [ ] firebase config setting
+  - [x] firebase config setting
 
 ## 4th Week
 

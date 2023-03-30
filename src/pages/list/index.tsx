@@ -21,7 +21,7 @@ const PortfolioList = (props: PortfolioListProps): ReactElement => {
   );
 };
 
-const ARTICLE_Card = styled.div`
+const ARTICLE_Card = styled.article`
   //TODO:aspect RATIO
   img {
     width: 250px;

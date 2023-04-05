@@ -104,20 +104,20 @@ structure
   - [x] setting db model (User, Portfolio, \*Tempalte ...)
 
     - User
+      id: number;
       uid: string;
       name: string;
-      password(???): string
-      userRole: 'admin' | 'designer'
-      useProfile
       phone: number;
       email: string;
+      thumbnail: Thumbnail;
+      userRole: 'admin' | 'designer'
 
     - Portfolio
-      user: User;
       id: number;
-      createdAt: Date;
+      createdAt: string;
       deletedAt: number;
-      updatedAt: Date;
+      updatedAt: string;
+      user: User;
       title: string;
       template: Template[];
       thumbnail: Thumbnail;

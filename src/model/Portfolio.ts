@@ -1,11 +1,8 @@
+import { BaseModel } from "./Common";
 import { Thumbnail } from "./Thumbnail";
 import { User } from "./User";
 
-export interface Portfolio {
-  id: number;
-  createdAt: string;
-  updatedAt: string;
-  deletedAt?: number;
+export interface Portfolio extends BaseModel {
   user: User;
   title: string;
   comment: Comment;

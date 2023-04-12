@@ -1,6 +1,6 @@
-import React from 'react';
+import { ReactElement } from "react";
 
-const index = () => {
+const index = (): ReactElement => {
   return <div>home</div>;
 };
 

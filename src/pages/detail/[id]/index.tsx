@@ -1,8 +1,9 @@
-import React, { ReactElement } from "react";
-import { Portfolio } from "@/model/Portfolio";
-import { useRouter } from "next/router";
-import styled from "styled-components";
-import Image from "next/image";
+import React, { ReactElement } from 'react';
+import { Portfolio } from '@/model/Portfolio';
+import { useRouter } from 'next/router';
+import styled from 'styled-components';
+import Image from 'next/image';
+
 interface PortfolioDetailProps {
   portfolios: Portfolio[];
 }
@@ -15,8 +16,8 @@ const PortfolioDetail = (props: PortfolioDetailProps): ReactElement => {
   return (
     <ARTICLE_Card key={portfolio?.id}>
       <Image
-        src={portfolio?.thumbnail?.url || ""}
-        alt={portfolio?.thumbnail.title || ""}
+        src={portfolio?.thumbnail?.url || ''}
+        alt={portfolio?.thumbnail.title || ''}
         width={600}
         height={400}
       />

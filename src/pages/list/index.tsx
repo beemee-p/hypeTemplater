@@ -1,9 +1,9 @@
 import { ReactElement } from 'react';
-import { Portfolio } from '@/model/Portfolio';
-import { AxiosGet } from '../api/fetcher';
 import styled from 'styled-components';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Portfolio } from '@model/Portfolio';
+import { AxiosGet } from '@api/fetcher';
 
 type PortfolioListProps = {
   portfolioList: Portfolio[];

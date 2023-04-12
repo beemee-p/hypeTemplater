@@ -1,9 +1,9 @@
 import { ReactElement } from 'react';
-import { Portfolio } from '@/model/Portfolio';
+import { Portfolio } from '@model/Portfolio';
 import { SWRConfig } from 'swr';
 import PortfolioList from './PortfolioList';
-import { AxiosGet } from '@/pages/api/fetcher';
-import { Fallback } from '@/pages/api/types';
+import { AxiosGet } from '@api/fetcher';
+import { Fallback } from '@api/types';
 
 type PortfolioListProps = Fallback<{
   portfolioList: Portfolio[];

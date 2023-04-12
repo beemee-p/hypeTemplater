@@ -1,6 +1,6 @@
 import { collection, getDoc, getDocs, Firestore } from 'firebase/firestore';
 import { NextApiRequest, NextApiResponse } from 'next';
-import { db } from '../firebase/ClientApp';
+import { db } from '@utils/firebase/ClientApp';
 
 export default async function portfoliosAPI(
   req: NextApiRequest,

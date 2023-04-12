@@ -1,11 +1,11 @@
-import { ReactElement } from "react";
-import styled from "styled-components";
-import Image from "next/image";
-import Link from "next/link";
-import { Portfolio } from "@/model/Portfolio";
-import HypeBanner from "@/components/list/HypeBanner";
-import HypeFilter from "@/components/list/HypeFilter";
-import HypeList from "@/components/list/HypeList";
+import { ReactElement } from 'react';
+import styled from 'styled-components';
+import Image from 'next/image';
+import Link from 'next/link';
+import { Portfolio } from '@model/Portfolio';
+import HypeBanner from '@components/list/HypeBanner';
+import HypeFilter from '@components/list/HypeFilter';
+import HypeList from '@components/list/HypeList';
 
 interface PortfolioListProps {
   portfolios: Portfolio[];

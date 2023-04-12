@@ -1,9 +1,9 @@
 import { ReactElement } from 'react';
-import styled from 'styled-components';
-import { Portfolio } from '@/model/Portfolio';
-import Image from 'next/image';
 import useSWR from 'swr';
+import Image from 'next/image';
 import Link from 'next/link';
+import styled from 'styled-components';
+import { Portfolio } from '@model/Portfolio';
 
 const PortfolioList = (): ReactElement => {
   const portfolios = useSWR<Portfolio[]>(['/api/portfolios']);

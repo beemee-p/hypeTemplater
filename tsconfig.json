@@ -34,6 +34,15 @@
       "@api/*": [
         "./src/pages/api/*"
       ],
+      "@pages/*": [
+        "./src/pages/*"
+      ],
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@utils/*": [
+        "./src/utils/*"
+      ],
     }
   },
   "include": [

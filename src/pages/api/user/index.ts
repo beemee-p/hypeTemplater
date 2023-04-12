@@ -1,10 +1,10 @@
-import { collection, getDoc, getDocs, Firestore } from "firebase/firestore";
-import { NextApiRequest, NextApiResponse } from "next";
-import { db } from "../firebase/ClientApp";
+import { collection, getDoc, getDocs, Firestore } from 'firebase/firestore';
+import { NextApiRequest, NextApiResponse } from 'next';
+import { db } from '@utils/firebase/ClientApp';
 
 export default async function GET(req: NextApiRequest, res: NextApiResponse) {
   const getUserList = async (db: Firestore) => {
-    const userCol = collection(db, "user");
+    const userCol = collection(db, 'user');
     const userSnapshot = await getDocs(userCol);
     const userList = await Promise.all(
       userSnapshot.docs.map(async (doc) => {
@@ -16,7 +16,7 @@ export default async function GET(req: NextApiRequest, res: NextApiResponse) {
         }
 
         return user;
-      })
+      }),
     );
     return userList;
   };

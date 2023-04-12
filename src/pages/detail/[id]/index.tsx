@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { Portfolio } from '@/model/Portfolio';
+import { Portfolio } from '@model/Portfolio';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import Image from 'next/image';

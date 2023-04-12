@@ -3,18 +3,18 @@ import styled from "styled-components";
 
 const HypeBanner = (): ReactElement => {
   return (
-    <DIV_AgencyBBSBanner>
+    <DIV_HypeBanner>
       <h1>
         Creative Partner <br />
         for Businness
       </h1>
 
-      <button>지금 문의하고 상담받기</button>
-    </DIV_AgencyBBSBanner>
+      <button>문의하기</button>
+    </DIV_HypeBanner>
   );
 };
 
-const DIV_AgencyBBSBanner = styled.div`
+const DIV_HypeBanner = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -16,7 +16,7 @@ const PortfolioEdit = (): ReactElement => {
     };
   }
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    AxiosPost('/api/portfolios', { image: imageSrc });
+    AxiosPost('/api/portfolio', { image: imageSrc });
     e.preventDefault();
   }
 

@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import * as firebase from 'firebase/app';
 import { getApps } from 'firebase/app';
+import { getStorage } from 'firebase/storage';
 import { getFirestore } from 'firebase/firestore';
 // TODO: Add SDKs for Firebase products that you want to use
 
@@ -23,5 +24,6 @@ if (!apps.length) {
   firebaseApp = apps[0];
 }
 const db = getFirestore(firebaseApp);
+const storage = getStorage();
 
-export { firebaseApp, db };
+export { firebaseApp, db, storage };

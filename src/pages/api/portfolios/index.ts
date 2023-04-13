@@ -1,8 +1,9 @@
 import { collection, getDoc, getDocs, Firestore } from 'firebase/firestore';
 import { NextApiRequest, NextApiResponse } from 'next';
-import { db } from '@utils/firebase/ClientApp';
+import { db, storage } from '@utils/firebase/ClientApp';
+import { getDownloadURL, ref, uploadString } from 'firebase/storage';
 
-export default async function portfoliosAPI(
+export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
@@ -38,6 +39,27 @@ export default async function portfoliosAPI(
     const data = await getPortfolioList(db);
     await res.status(200).json(data);
   }
-}
 
-//https://velog.io/@minsangk/2019-09-06-0209-%EC%9E%91%EC%84%B1%EB%90%A8-eik06xy8mm
+  if (req.method === 'POST') {
+    const image = req.body.data.image;
+    try {
+      const storage_ref = ref(storage, 'hi.jpg');
+      const image_snapshot = await uploadString(
+        storage_ref,
+        image,
+        'data_url',
+      ).then((snapshot) => {
+        return snapshot;
+      });
+      const image_url = getDownloadURL(image_snapshot.ref).then(
+        (downloadUrl) => downloadUrl,
+      );
+      console.log(`이미지를 업로드했습니당: ${image_url}`);
+    } catch (err) {
+      console.log('포트폴리오를 업로드하지 못했습니다.');
+      console.error(err);
+    }
+    const data = null;
+    await res.status(200).json(data);
+  }
+}

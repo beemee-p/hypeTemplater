@@ -1,18 +1,19 @@
-import { ReactElement } from 'react';
-import styled from 'styled-components';
-import Image from 'next/image';
-import Link from 'next/link';
-import { Portfolio } from '@model/Portfolio';
-import HypeBanner from '@components/list/HypeBanner';
-import HypeFilter from '@components/list/HypeFilter';
-import HypeList from '@components/list/HypeList';
+import { ReactElement, useRef } from "react";
+import styled from "styled-components";
+import { Portfolio } from "@model/Portfolio";
+import HypeBanner from "@components/list/HypeBanner";
+import HypeFilter from "@components/list/HypeFilter";
+import HypeList from "@components/list/HypeList";
 
 interface PortfolioListProps {
   portfolios: Portfolio[];
 }
 
 const HypeMain = (props: PortfolioListProps): ReactElement => {
-  props;
+  function handleScroll() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
   return (
     <DIV_HypeMain>
       <HypeBanner />
@@ -32,27 +33,23 @@ const HypeMain = (props: PortfolioListProps): ReactElement => {
         </h5>
 
         <HypeFilter />
-        <HypeList />
-        {props.portfolios.map((portfolio: Portfolio) => (
-          <ARTICLE_Card key={portfolio.id}>
-            <Link href={`/detail/${portfolio.id}`}>
-              <Image
-                src={portfolio.thumbnail?.url}
-                alt={portfolio.thumbnail.title}
-                width={600}
-                height={400}
-              />
-            </Link>
-            <h3>{portfolio.title}</h3>
-            <p>{portfolio.user.name}</p>
-          </ARTICLE_Card>
-        ))}
+        <HypeList portfolios={props.portfolios} />
       </DIV_HypeContent>
+
+      <button className="scroll-btn" onClick={handleScroll}>
+        ▲
+      </button>
     </DIV_HypeMain>
   );
 };
 
-const DIV_HypeMain = styled.div``;
+const DIV_HypeMain = styled.div`
+  .scroll-btn {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+  }
+`;
 const DIV_HypeContent = styled.div`
   padding: 0 64px;
   background: #2f4f4f;
@@ -72,16 +69,6 @@ const DIV_HypeContent = styled.div`
     letter-spacing: -0.5px;
     font-weight: 600;
     margin: 20px 0 60px;
-  }
-`;
-
-const ARTICLE_Card = styled.article`
-  //TODO:aspect RATIO
-  img {
-    width: 250px;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 4px;
   }
 `;
 

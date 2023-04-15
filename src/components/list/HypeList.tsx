@@ -3,6 +3,7 @@ import { Portfolio } from "@/model/Portfolio";
 import styled from "styled-components";
 import GridCard from "../common/GridCard";
 import HypeCard from "./HypeCard";
+import { tabletMedia } from "@/styles/mediaQuery";
 
 interface HypeListProps {
   portfolios: Portfolio[];
@@ -28,6 +29,13 @@ const HypeList = (props: HypeListProps): ReactElement => {
   );
 };
 
-const DIV_HypeList = styled.div``;
+const DIV_HypeList = styled.div`
+  display: flex;
+  margin-left: 53px;
+
+  ${tabletMedia} {
+    margin-left: 0;
+  }
+`;
 
 export default HypeList;

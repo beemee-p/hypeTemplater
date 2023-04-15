@@ -2,12 +2,12 @@ import { ReactElement, useState } from "react";
 import styled from "styled-components";
 
 const categories = [
-  "전체",
-  "콜라보레이션",
-  "아트워크&디자인",
-  "영상",
-  "이벤트",
-  "굿즈",
+  "MAIN",
+  "EDITOR'S NOTE",
+  "NEWS",
+  "FASHION",
+  "BEUATY",
+  "MUSIC",
 ];
 
 const HypeFilter = (): ReactElement => {
@@ -32,7 +32,9 @@ const DIV_HypeFilter = styled.div`
   display: flex;
   flex-direction: column;
   position: sticky;
-  top: 50px;
+  top: 136px;
+  width: 155px;
+  min-width: 155px;
 
   .category-btn {
     width: fit-content;

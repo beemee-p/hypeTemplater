@@ -1,9 +1,10 @@
-import { ReactElement, useRef } from "react";
+import { ReactElement } from "react";
 import styled from "styled-components";
 import { Portfolio } from "@model/Portfolio";
 import HypeBanner from "@components/list/HypeBanner";
 import HypeFilter from "@components/list/HypeFilter";
 import HypeList from "@components/list/HypeList";
+import { tabletMedia } from "@/styles/mediaQuery";
 
 interface PortfolioListProps {
   portfolios: Portfolio[];
@@ -23,6 +24,7 @@ const HypeMain = (props: PortfolioListProps): ReactElement => {
           CONFUSED KOREA <br />
           DAZED MOMENT
         </h1>
+
         <h5>
           Digital Media has become the most important but yet remains as an
           underdeveloped territory. Dazed & Confused Korea reinforces strong
@@ -32,8 +34,10 @@ const HypeMain = (props: PortfolioListProps): ReactElement => {
           media networks to reach a leading position in the industry.
         </h5>
 
-        <HypeFilter />
-        <HypeList portfolios={props.portfolios} />
+        <div className="hype-list">
+          <HypeFilter />
+          <HypeList portfolios={props.portfolios} />
+        </div>
       </DIV_HypeContent>
 
       <button className="scroll-btn" onClick={handleScroll}>
@@ -50,6 +54,7 @@ const DIV_HypeMain = styled.div`
     left: 50%;
   }
 `;
+
 const DIV_HypeContent = styled.div`
   padding: 0 64px;
   background: #2f4f4f;
@@ -63,12 +68,30 @@ const DIV_HypeContent = styled.div`
     letter-spacing: -0.5px;
     font-weight: bold;
   }
+
   > h5 {
     color: #ffffff;
     font-size: 20px;
     letter-spacing: -0.5px;
     font-weight: 600;
     margin: 20px 0 60px;
+  }
+
+  .hype-list {
+    display: flex;
+  }
+
+  ${tabletMedia} {
+    > h1 {
+      padding: 80px 0 0;
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 32px;
+    }
+
+    .bbs-list {
+      flex-direction: column;
+    }
   }
 `;
 

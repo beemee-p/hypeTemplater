@@ -16,16 +16,17 @@ const HypeCard = (props: HypeCardProps): ReactElement => {
         <Image
           src={props.portfolio.thumbnail?.url}
           alt={props.portfolio.thumbnail?.title}
-          width={600}
-          height={400}
+          width={300}
+          height={300}
         />
 
         <div className="card-hover">
           <div className="card-title">
-            SM 엔터테인먼트 EXO D.O. 1st mini 앨범 Rose 오피셜 뮤직비디오 2D
-            animation
+            Marithé François Girbaud Marithé François Girbaud
           </div>
-          <div className="card-designer">mareykrap / SM엔터테인먼트</div>
+          <div className="card-designer">
+            andy anderson / Marithé François Girbaud
+          </div>
         </div>
       </Link>
     </DIV_HypeCard>

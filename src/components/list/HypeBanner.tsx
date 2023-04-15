@@ -5,8 +5,11 @@ const HypeBanner = (): ReactElement => {
   return (
     <DIV_HypeBanner>
       <h1>
-        Creative Partner <br />
-        for Businness
+        Updates, inspiration,
+        <br />
+        and more from
+        <br />
+        the Hype community
       </h1>
 
       <button>문의하기</button>
@@ -27,8 +30,8 @@ const DIV_HypeBanner = styled.div`
     margin-top: 0;
     margin-bottom: 40px;
     font-family: "Gotham";
-    font-size: 88px;
-    text-align: center;
+    font-size: 70px;
+    text-align: left;
     line-height: 92px;
     letter-spacing: -0.03em;
     text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);

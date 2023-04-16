@@ -1,16 +1,18 @@
-import { ReactElement } from "react";
+import { ReactElement, useState } from "react";
 import { Portfolio } from "@/model/Portfolio";
 import styled from "styled-components";
 import GridCard from "../common/GridCard";
 import HypeCard from "./HypeCard";
 import { tabletMedia } from "@/styles/mediaQuery";
+import HypeDetail from "../detail/HypeDetail";
 
 interface HypeListProps {
   portfolios: Portfolio[];
 }
 
 const HypeList = (props: HypeListProps): ReactElement => {
-  console.log(props.portfolios);
+  const [portfolio, setPortfolio] = useState<Portfolio | null>(null);
+
   return (
     <DIV_HypeList>
       <GridCard
@@ -20,11 +22,19 @@ const HypeList = (props: HypeListProps): ReactElement => {
         itemPerLine={2}
       >
         {props.portfolios?.map((portfolio) => (
-          <div key={portfolio.id}>
+          <div key={portfolio.id} onClick={() => setPortfolio(portfolio)}>
             <HypeCard portfolio={portfolio} />
           </div>
         ))}
       </GridCard>
+
+      {portfolio && (
+        <HypeDetail
+          portfolio={portfolio}
+          isPage={false}
+          close={() => setPortfolio(null)}
+        />
+      )}
     </DIV_HypeList>
   );
 };

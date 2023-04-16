@@ -1,7 +1,6 @@
 import { Portfolio } from "@/model/Portfolio";
 import { ReactElement } from "react";
 import styled from "styled-components";
-import Link from "next/link";
 import Image from "next/image";
 import { tabletMedia } from "@/styles/mediaQuery";
 
@@ -12,23 +11,21 @@ interface HypeCardProps {
 const HypeCard = (props: HypeCardProps): ReactElement => {
   return (
     <DIV_HypeCard>
-      <Link href={`/detail/${props.portfolio.id}`}>
-        <Image
-          src={props.portfolio.thumbnail?.url}
-          alt={props.portfolio.thumbnail?.title}
-          width={300}
-          height={300}
-        />
+      <Image
+        src={props.portfolio.thumbnail?.url}
+        alt={props.portfolio.thumbnail?.title}
+        width={300}
+        height={300}
+      />
 
-        <div className="card-hover">
-          <div className="card-title">
-            Marithé François Girbaud Marithé François Girbaud
-          </div>
-          <div className="card-designer">
-            andy anderson / Marithé François Girbaud
-          </div>
+      <div className="card-hover">
+        <div className="card-title">
+          Marithé François Girbaud Marithé François Girbaud
         </div>
-      </Link>
+        <div className="card-designer">
+          andy anderson / Marithé François Girbaud
+        </div>
+      </div>
     </DIV_HypeCard>
   );
 };

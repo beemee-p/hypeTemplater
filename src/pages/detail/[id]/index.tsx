@@ -1,41 +1,23 @@
-import React, { ReactElement } from 'react';
-import { Portfolio } from '@model/Portfolio';
-import { useRouter } from 'next/router';
-import styled from 'styled-components';
-import Image from 'next/image';
+import React, { ReactElement } from "react";
+import { useRouter } from "next/router";
+import { Portfolio } from "@model/Portfolio";
+import HypeDetailComponent from "@components/detail/HypeDetail";
 
 interface PortfolioDetailProps {
   portfolios: Portfolio[];
 }
 
-const PortfolioDetail = (props: PortfolioDetailProps): ReactElement => {
+const HypeDetail = (props: PortfolioDetailProps): ReactElement => {
   const router = useRouter();
   const { id } = router.query;
   const portfolio = props.portfolios.find((v) => id && v.id === +id);
 
   return (
-    <ARTICLE_Card key={portfolio?.id}>
-      <Image
-        src={portfolio?.thumbnail?.url || ''}
-        alt={portfolio?.thumbnail.title || ''}
-        width={600}
-        height={400}
-      />
-
-      <h3>{portfolio?.title}</h3>
-      <p>{portfolio?.user.name}</p>
-    </ARTICLE_Card>
+    <>
+      {portfolio && <HypeDetailComponent portfolio={portfolio} isPage={true} />}
+    </>
   );
 };
-
-const ARTICLE_Card = styled.article`
-  img {
-    width: 250px;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 4px;
-  }
-`;
 
 export async function getServerSideProps() {
   try {
@@ -48,4 +30,4 @@ export async function getServerSideProps() {
   }
 }
 
-export default PortfolioDetail;
+export default HypeDetail;

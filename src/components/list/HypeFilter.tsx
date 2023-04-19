@@ -1,5 +1,7 @@
+import { ButtonTheme } from "@/styles/ButtonTheme";
 import { ReactElement, useState } from "react";
 import styled from "styled-components";
+import Button from "../common/Button";
 
 const categories = [
   "MAIN",
@@ -16,13 +18,14 @@ const HypeFilter = (): ReactElement => {
   return (
     <DIV_HypeFilter>
       {categories.map((label, index) => (
-        <button
+        <Button
           className={`category-btn ${category === index ? "active" : ""}`}
           key={index}
+          design={ButtonTheme.grayButtonStyle}
           onClick={() => setCategory(index)}
         >
           {label}
-        </button>
+        </Button>
       ))}
     </DIV_HypeFilter>
   );
@@ -37,22 +40,6 @@ const DIV_HypeFilter = styled.div`
   min-width: 155px;
 
   .category-btn {
-    width: fit-content;
-    margin-bottom: 12px;
-    cursor: pointer;
-    border: 0;
-    text-align: center;
-    box-sizing: border-box;
-    font-weight: 500;
-    background-color: #696969;
-    color: #ffffff;
-    padding: 12px 24px;
-    border-radius: 28px;
-    font-size: 14px;
-    line-height: 22px;
-    letter-spacing: -0.25px;
-    font-weight: 700;
-
     &.active {
       background-color: #ffffff;
       color: #696969;

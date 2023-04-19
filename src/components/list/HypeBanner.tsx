@@ -1,5 +1,7 @@
 import React, { ReactElement } from "react";
 import styled from "styled-components";
+import Button from "../common/Button";
+import { ButtonTheme } from "@/styles/ButtonTheme";
 
 const HypeBanner = (): ReactElement => {
   return (
@@ -12,7 +14,7 @@ const HypeBanner = (): ReactElement => {
         the Hype community
       </h1>
 
-      <button>문의하기</button>
+      <Button design={ButtonTheme.whiteButtonStyle}>문의하기</Button>
     </DIV_HypeBanner>
   );
 };
@@ -36,10 +38,6 @@ const DIV_HypeBanner = styled.div`
     letter-spacing: -0.03em;
     text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     color: #ffffff;
-  }
-
-  > button {
-    max-width: 243px;
   }
 `;
 

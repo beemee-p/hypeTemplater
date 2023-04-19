@@ -1,9 +1,9 @@
 import { MouseEvent, ReactElement, useEffect, useRef } from "react";
 import styled, { css } from "styled-components";
-import Image from "next/image";
 import { useRouter } from "next/router";
 import { Portfolio } from "@/model/Portfolio";
 import { desktopX1Media, mobileMedia, tabletMedia } from "@/styles/mediaQuery";
+import HypeDetailContent from "./HypeDetailContent";
 
 export interface HypeDetailProps {
   portfolio: Portfolio;
@@ -13,7 +13,7 @@ export interface HypeDetailProps {
 
 const HypeDetail = (props: HypeDetailProps): ReactElement => {
   const router = useRouter();
-  const clickedRef = useRef<EventTarget>();
+  const clickRef = useRef<EventTarget>();
   const isPage = props.isPage || false;
 
   useEffect(() => {
@@ -49,8 +49,8 @@ const HypeDetail = (props: HypeDetailProps): ReactElement => {
   }, []);
 
   function handleClose(e?: MouseEvent<HTMLElement> | PopStateEvent) {
-    if (clickedRef.current) {
-      clickedRef.current = undefined;
+    if (clickRef.current) {
+      clickRef.current = undefined;
       return;
     }
 
@@ -62,39 +62,19 @@ const HypeDetail = (props: HypeDetailProps): ReactElement => {
   return (
     <DIV_HypeDetail isPage={isPage} onMouseUp={handleClose}>
       <div
-        className="bbs-content-wrapper"
+        className="detail-wrapper"
         onMouseUp={(e) => {
-          clickedRef.current = e.target;
+          clickRef.current = e.target;
         }}
         onMouseDown={(e) => {
-          clickedRef.current = e.target;
+          clickRef.current = e.target;
         }}
       >
-        테스트입니다
-        <ARTICLE_Card key={props.portfolio?.id}>
-          <Image
-            src={props.portfolio?.thumbnail?.url || ""}
-            alt={props.portfolio?.thumbnail.title || ""}
-            width={600}
-            height={400}
-          />
-
-          <h3>{props.portfolio?.title}</h3>
-          <p>{props.portfolio?.user.name}</p>
-        </ARTICLE_Card>
+        <HypeDetailContent {...props} handleClose={handleClose} />
       </div>
     </DIV_HypeDetail>
   );
 };
-
-const ARTICLE_Card = styled.article`
-  img {
-    width: 250px;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 4px;
-  }
-`;
 
 const DIV_HypeDetail = styled.div<{ isPage?: boolean }>`
   display: flex;
@@ -114,17 +94,17 @@ const DIV_HypeDetail = styled.div<{ isPage?: boolean }>`
     word-break: break-all;
   }
 
-  .bbs-content-wrapper {
+  .detail-wrapper {
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: 0 auto;
+    width: 90%;
     height: min-content;
+    max-width: 1400px;
     min-height: 101vh;
-    margin-top: 24px;
-    margin-bottom: 24px;
     border-radius: 8px;
-    width: ${({ isPage }) => (isPage ? "90%" : "unset")};
   }
 
   .loading-wrapper {
@@ -165,7 +145,7 @@ const DIV_HypeDetail = styled.div<{ isPage?: boolean }>`
         : css`
             background-color: #fbfcfc;
           `}
-    .bbs-content-wrapper {
+    .detail-wrapper {
       width: 100%;
       min-width: unset;
       margin-top: unset;
@@ -177,7 +157,7 @@ const DIV_HypeDetail = styled.div<{ isPage?: boolean }>`
   }
 
   ${mobileMedia} {
-    .bbs-content-wrapper {
+    .detail-wrapper {
       margin-bottom: 40px;
     }
   }

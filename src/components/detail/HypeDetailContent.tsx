@@ -7,6 +7,7 @@ import {
   desktopX2Media,
   tabletMedia,
 } from "@/styles/mediaQuery";
+import HypeDetailTop from "./HypeDetailTop";
 
 interface HypeDetailContentProps extends HypeDetailProps {
   handleClose: () => void;
@@ -15,17 +16,24 @@ interface HypeDetailContentProps extends HypeDetailProps {
 const HypeDetailContent = (props: HypeDetailContentProps): ReactElement => {
   return (
     <DIV_HypeDetailContent>
-      <ARTICLE_Card key={props.portfolio?.id}>
-        <Image
-          src={props.portfolio?.thumbnail?.url || ""}
-          alt={props.portfolio?.thumbnail.title || ""}
-          width={600}
-          height={400}
-        />
+      <HypeDetailTop portfolio={props.portfolio} />
 
-        <h3>{props.portfolio?.title}</h3>
-        <p>{props.portfolio?.user.name}</p>
-      </ARTICLE_Card>
+      <DIV_Content>
+        <div className="test">
+          Marithé François Girbaud Marithé <br />
+          Girbaud Marithé François Girbaud Marithé François <br />
+          Girbaud Marithé François Girbaud Marithé François Girbaud Marithé
+        </div>
+
+        <ARTICLE_Card key={props.portfolio?.id}>
+          <Image
+            src={props.portfolio?.thumbnail?.url || ""}
+            alt={props.portfolio?.thumbnail.title || ""}
+            width={600}
+            height={400}
+          />
+        </ARTICLE_Card>
+      </DIV_Content>
     </DIV_HypeDetailContent>
   );
 };
@@ -38,7 +46,7 @@ const DIV_HypeDetailContent = styled.div<{
   border: ${({ isPage }) => (isPage ? `1px solid gray` : "none")};
   width: 100%;
   max-width: 1400px;
-  height: 5000px;
+  height: 100vh;
 
   .top-action-info {
     display: flex;
@@ -54,6 +62,16 @@ const DIV_HypeDetailContent = styled.div<{
 
   ${tabletMedia} {
     width: 100%;
+  }
+`;
+
+const DIV_Content = styled.div`
+  padding: 0 140px;
+  text-align: center;
+
+  > div,
+  > img {
+    margin-bottom: 40px;
   }
 `;
 

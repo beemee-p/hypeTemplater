@@ -99,7 +99,7 @@ const DIV_HypeDetail = styled.div<{ isPage?: boolean }>`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 0 auto;
+    margin: 50px auto;
     width: 90%;
     height: min-content;
     max-width: 1400px;

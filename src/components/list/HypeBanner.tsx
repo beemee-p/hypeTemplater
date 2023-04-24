@@ -1,9 +1,11 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useState } from "react";
 import styled from "styled-components";
 import Button from "../common/Button";
 import { ButtonTheme } from "@/styles/ButtonTheme";
+import HypeConsultModal from "./HypeConsultModal";
 
 const HypeBanner = (): ReactElement => {
+  const [isModal, setIsModal] = useState(false);
   return (
     <DIV_HypeBanner>
       <h1>
@@ -14,7 +16,16 @@ const HypeBanner = (): ReactElement => {
         the Hype community
       </h1>
 
-      <Button design={ButtonTheme.whiteButtonStyle}>문의하기</Button>
+      <Button
+        onClick={() => setIsModal(true)}
+        design={ButtonTheme.whiteButtonStyle}
+      >
+        상담하기
+      </Button>
+
+      {isModal && (
+        <HypeConsultModal open={isModal} close={() => setIsModal(false)} />
+      )}
     </DIV_HypeBanner>
   );
 };

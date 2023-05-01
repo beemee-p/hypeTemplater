@@ -18,7 +18,7 @@ const HypeDetail = (props: HypeDetailProps): ReactElement => {
 
   useEffect(() => {
     window.history.pushState(null, "", `/detail/${props.portfolio.id}`);
-  }, []);
+  }, [props.portfolio.id]);
 
   useEffect(() => {
     if (!isPage) {
@@ -33,7 +33,7 @@ const HypeDetail = (props: HypeDetailProps): ReactElement => {
         window.removeEventListener("keydown", handleKeyDown, { capture: true });
       };
     }
-  }, [isPage]);
+  });
 
   // NOTE: 문서 로드 시 크롬, 사파리 등에서 popstate 이벤트 발생
   useEffect(() => {
@@ -46,7 +46,7 @@ const HypeDetail = (props: HypeDetailProps): ReactElement => {
         capture: true,
       });
     };
-  }, []);
+  });
 
   function handleClose(e?: MouseEvent<HTMLElement> | PopStateEvent) {
     if (clickRef.current) {

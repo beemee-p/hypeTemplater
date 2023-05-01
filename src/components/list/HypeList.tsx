@@ -43,6 +43,11 @@ const DIV_HypeList = styled.div`
   display: flex;
   margin-left: 53px;
 
+  > div {
+    width: 100%;
+    height: 100%;
+  }
+
   ${tabletMedia} {
     margin-left: 0;
   }

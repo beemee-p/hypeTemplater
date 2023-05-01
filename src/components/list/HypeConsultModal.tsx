@@ -3,6 +3,8 @@ import { ReactElement, useMemo } from "react";
 import styled, { css } from "styled-components";
 import Modal from "../common/Modal";
 import HypeConsultForm from "./HypeConsultForm";
+import iconClose from "@/styles/image/icon_close.svg";
+import Image from "next/image";
 
 interface HypeConsultModalProps {
   open: boolean;
@@ -25,13 +27,14 @@ const HypeConsultModal = (props: HypeConsultModalProps): ReactElement => {
         </div>
       </DIV_Content>
     );
-  }, []);
+  }, [props.close]);
 
   return (
     <>
       <Modal
         open={props.open}
         close={props.close}
+        closeIcon={<Image src={iconClose} alt={"close"} />}
         design={ConsultModalStyle}
         content={content}
       />

@@ -34,10 +34,13 @@ const DIV_HypeCard = styled.div`
   position: relative;
   background: pink;
   cursor: pointer;
+  width: 100%;
+  height: 100%;
 
   > img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
   }
 
   .card-hover {

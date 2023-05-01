@@ -6,10 +6,25 @@ import HypeConsultModal from "./HypeConsultModal";
 
 const HypeBanner = (): ReactElement => {
   const [isModal, setIsModal] = useState(false);
+
   return (
     <DIV_HypeBanner>
+      <video
+        id="background-video"
+        className="bg-video"
+        autoPlay
+        loop
+        muted
+        poster="https://assets.codepen.io/6093409/river.jpg"
+      >
+        <source
+          src="https://assets.codepen.io/6093409/river.mp4"
+          type="video/mp4"
+        />
+      </video>
+
       <h1>
-        Updates, inspiration,
+        Calm, Inspiration,
         <br />
         and more from
         <br />
@@ -36,10 +51,17 @@ const DIV_HypeBanner = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 1080px;
-  background: gray;
+  height: 884px;
+  position: relative;
+
+  .bg-video {
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
 
   > h1 {
+    position: absolute;
     margin-top: 0;
     margin-bottom: 40px;
     font-family: "Gotham";

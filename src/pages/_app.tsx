@@ -1,6 +1,6 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
-// import { ThemeProvider } from "styled-components";
+import "@/styles/global.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -10,9 +10,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <title>HypeTemplate</title>
       </Head>
 
-      {/* <ThemeProvider theme={theme}> */}
       <Component {...pageProps} />
-      {/* </ThemeProvider> */}
     </>
   );
 }

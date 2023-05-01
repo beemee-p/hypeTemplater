@@ -18,7 +18,7 @@ const HypeDetail = (props: HypeDetailProps): ReactElement => {
 
   useEffect(() => {
     window.history.pushState(null, "", `/detail/${props.portfolio.id}`);
-  }, [props.portfolio.id]);
+  }, []);
 
   useEffect(() => {
     if (!isPage) {
@@ -56,7 +56,7 @@ const HypeDetail = (props: HypeDetailProps): ReactElement => {
 
     props.close && props.close();
     e?.stopPropagation();
-    e?.type !== "popstate" && router.push({ pathname: "/" });
+    e?.type !== "popstate" && router.back;
   }
 
   return (

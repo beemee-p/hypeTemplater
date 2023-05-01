@@ -1,12 +1,7 @@
-import React, { ReactElement, useState } from "react";
+import React, { ReactElement } from "react";
 import styled from "styled-components";
-import Button from "../common/Button";
-import { ButtonTheme } from "@/styles/ButtonTheme";
-import HypeConsultModal from "./HypeConsultModal";
 
 const HypeBanner = (): ReactElement => {
-  const [isModal, setIsModal] = useState(false);
-
   return (
     <DIV_HypeBanner>
       <video
@@ -30,34 +25,26 @@ const HypeBanner = (): ReactElement => {
         <br />
         the Hype community
       </h1>
-
-      <Button
-        onClick={() => setIsModal(true)}
-        design={ButtonTheme.whiteButtonStyle}
-      >
-        상담하기
-      </Button>
-
-      {isModal && (
-        <HypeConsultModal open={isModal} close={() => setIsModal(false)} />
-      )}
     </DIV_HypeBanner>
   );
 };
 
 const DIV_HypeBanner = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 884px;
-  position: relative;
+  height: 100%;
+  min-height: 1080px;
 
   .bg-video {
     position: absolute;
     top: 0;
     width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   > h1 {

@@ -1,7 +1,8 @@
-import { ButtonTheme } from "@/styles/ButtonTheme";
 import { ReactElement, useState } from "react";
-import styled from "styled-components";
+import HypeConsultModal from "./HypeConsultModal";
 import Button from "../common/Button";
+import { ButtonTheme } from "@/styles/ButtonTheme";
+import styled from "styled-components";
 
 const categories = [
   "MAIN",
@@ -13,6 +14,7 @@ const categories = [
 ];
 
 const HypeFilter = (): ReactElement => {
+  const [isModal, setIsModal] = useState(false);
   const [category, setCategory] = useState<number>(0);
 
   return (
@@ -27,6 +29,17 @@ const HypeFilter = (): ReactElement => {
           {label}
         </Button>
       ))}
+
+      <Button
+        onClick={() => setIsModal(true)}
+        design={ButtonTheme.cyanButtonStyle}
+      >
+        상담하기
+      </Button>
+
+      {isModal && (
+        <HypeConsultModal open={isModal} close={() => setIsModal(false)} />
+      )}
     </DIV_HypeFilter>
   );
 };
@@ -35,6 +48,7 @@ const DIV_HypeFilter = styled.div`
   display: flex;
   flex-direction: column;
   position: sticky;
+  z-index: 1;
   top: 136px;
   width: 155px;
   min-width: 155px;

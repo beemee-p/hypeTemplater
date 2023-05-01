@@ -1,5 +1,6 @@
 import React, { ButtonHTMLAttributes, ReactElement } from "react";
 import styled, { CSSProp } from "styled-components";
+import { ButtonTheme } from "@/styles/ButtonTheme";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   design?: CSSProp;
@@ -14,6 +15,7 @@ const Button = (props: ButtonProps): ReactElement => {
 };
 
 const BUTTON_Button = styled.button<{ design?: CSSProp }>`
+  ${ButtonTheme.defaultButtonStyle}
   ${({ design }) => design}
 `;
 

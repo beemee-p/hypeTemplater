@@ -1,22 +1,24 @@
 import { css } from "styled-components";
 
-const whiteButtonStyle = css`
+const defaultButtonStyle = css`
   max-width: 243px;
   width: fit-content;
+  padding: 12px 24px;
   margin-bottom: 12px;
   cursor: pointer;
   border: 0;
-  text-align: center;
-  box-sizing: border-box;
-  font-weight: 500;
-  background-color: #ffffff;
-  color: #696969;
-  padding: 12px 24px;
   border-radius: 28px;
+  box-sizing: border-box;
+  text-align: center;
   font-size: 14px;
+  font-weight: 700;
   line-height: 22px;
   letter-spacing: -0.25px;
-  font-weight: 700;
+`;
+
+const whiteButtonStyle = css`
+  background-color: #ffffff;
+  color: #696969;
 
   &:hover {
     background-color: #696969;
@@ -25,21 +27,8 @@ const whiteButtonStyle = css`
 `;
 
 const grayButtonStyle = css`
-  width: fit-content;
-  margin-bottom: 12px;
-  cursor: pointer;
-  border: 0;
-  text-align: center;
-  box-sizing: border-box;
-  font-weight: 500;
   background-color: #696969;
   color: #ffffff;
-  padding: 12px 24px;
-  border-radius: 28px;
-  font-size: 14px;
-  line-height: 22px;
-  letter-spacing: -0.25px;
-  font-weight: 700;
 
   &:hover {
     background-color: #ffffff;
@@ -47,4 +36,43 @@ const grayButtonStyle = css`
   }
 `;
 
-export const ButtonTheme = { whiteButtonStyle, grayButtonStyle };
+const cyanButtonStyle = css`
+  background-color: #10afa4;
+  color: #ffffff;
+
+  &:hover {
+    background-color: #ffffff;
+    color: #696969;
+  }
+`;
+
+const buttonColor = {
+  white: "#ffffff",
+  gray: "#696969",
+  black: "#000000",
+  cyanLight: "#10afa4",
+  cyanDark: "#07303b",
+};
+
+export const cyanDark = {
+  cyan1: "#07191d",
+  cyan2: "#061e24",
+  cyan3: "#072830",
+  cyan4: "#07303b",
+  cyan5: "#073844",
+  cyan6: "#064150",
+  cyan7: "#045063",
+  cyan8: "#00647d",
+  cyan9: "#05a2c2",
+  cyan10: "#00b1cc",
+  cyan11: "#00c2d7",
+  cyan12: "#e1f8fa",
+};
+
+export const ButtonTheme = {
+  defaultButtonStyle,
+  whiteButtonStyle,
+  grayButtonStyle,
+  cyanButtonStyle,
+  buttonColor,
+};

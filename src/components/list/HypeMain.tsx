@@ -57,7 +57,7 @@ const DIV_HypeMain = styled.div`
 
 const DIV_HypeContent = styled.div`
   padding: 0 64px;
-  background: #2f4f4f;
+  background: #07303b;
 
   > h1 {
     margin: 0;

@@ -63,7 +63,9 @@ const ConsultModalStyle = css`
       cursor: pointer;
 
       &:hover {
-        opacity: 0.8;
+        > img {
+          opacity: 0.7;
+        }
       }
     }
 

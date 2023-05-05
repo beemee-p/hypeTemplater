@@ -16,6 +16,21 @@ const defaultButtonStyle = css`
   letter-spacing: -0.25px;
 `;
 
+const defaultIconButtonStyle = css`
+  cursor: pointer;
+  outline: none;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  padding: 0;
+
+  &:hover {
+    opacity: 0.7;
+  }
+`;
+
 const whiteButtonStyle = css`
   background-color: #ffffff;
   color: #696969;
@@ -70,6 +85,7 @@ export const cyanDark = {
 };
 
 export const ButtonTheme = {
+  defaultIconButtonStyle,
   defaultButtonStyle,
   whiteButtonStyle,
   grayButtonStyle,

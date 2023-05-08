@@ -9,7 +9,7 @@ import {
   greenDark,
 } from "@radix-ui/colors";
 
-const theme = {
+const light = {
   colors: {
     ...gray,
     ...blue,
@@ -18,7 +18,7 @@ const theme = {
   },
 };
 
-const darkTheme = {
+const dark = {
   colors: {
     ...grayDark,
     ...blueDark,
@@ -28,6 +28,8 @@ const darkTheme = {
 };
 
 export const GlobalTheme = {
-  theme,
-  darkTheme,
+  light,
+  dark,
 };
+
+export type MainTheme = typeof light;

@@ -36,8 +36,7 @@ const DIV_HypeBanner = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100%;
-  min-height: 1080px;
+  height: calc(100vh - 56px);
 
   .bg-video {
     position: absolute;

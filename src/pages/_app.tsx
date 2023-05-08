@@ -3,10 +3,24 @@ import Head from "next/head";
 import "@/styles/global.css";
 import "@/styles/GlobalTheme.ts";
 import { ThemeProvider } from "styled-components";
-import { GlobalTheme } from "@/styles/GlobalTheme";
+import { GlobalTheme, MainTheme } from "@/styles/GlobalTheme";
 import Layout from "@/components/common/Layout";
+import useDarkMode from "@/components/hooks/useDarkMode";
+import { createContext } from "react";
+
+export interface ContextProps {
+  colorTheme: MainTheme | null;
+  setToggleTheme: () => void;
+}
+
+export const ThemeContext = createContext<ContextProps>({
+  colorTheme: GlobalTheme.light,
+  setToggleTheme: () => null,
+});
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const { colorTheme, setToggleTheme } = useDarkMode();
+
   return (
     <>
       <Head>
@@ -14,11 +28,13 @@ function MyApp({ Component, pageProps }: AppProps) {
         <title>HypeTemplate</title>
       </Head>
 
-      <ThemeProvider theme={GlobalTheme.theme}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </ThemeProvider>
+      <ThemeContext.Provider value={{ colorTheme, setToggleTheme }}>
+        <ThemeProvider theme={{ ...colorTheme }}>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ThemeProvider>
+      </ThemeContext.Provider>
     </>
   );
 }

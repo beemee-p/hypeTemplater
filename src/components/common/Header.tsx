@@ -1,13 +1,15 @@
-import { ReactElement, useState } from "react";
+import { ReactElement, useContext } from "react";
 import Image from "next/image";
 import styled from "styled-components";
 import IconHamburger from "@/styles/image/icon_hamburger.png";
 import IconSun from "@/styles/image/icon_sun.svg";
 import IconMoon from "@/styles/image/icon_moon.svg";
 import Button from "./Button";
+import { ThemeContext } from "@/pages/_app";
+import { GlobalTheme } from "@/styles/GlobalTheme";
 
 const Header = (): ReactElement => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const { colorTheme, setToggleTheme } = useContext(ThemeContext);
 
   return (
     <DIV_Header>
@@ -25,10 +27,10 @@ const Header = (): ReactElement => {
       <Button
         className="theme-btn"
         buttonType={"icon"}
-        onClick={() => setIsDarkMode(!isDarkMode)}
+        onClick={() => setToggleTheme()}
       >
         <Image
-          src={isDarkMode ? IconMoon : IconSun}
+          src={colorTheme === GlobalTheme.light ? IconMoon : IconSun}
           alt={"icon_sun"}
           width={28}
           height={28}
@@ -53,6 +55,8 @@ const DIV_Header = styled.div`
     width: 100%;
     height: 56px;
     font-size: 30px;
+    color: ${(props) => props.theme.colors?.gray1};
+    background: ${(props) => props.theme.colors?.gray12};
   }
 
   .theme-btn {

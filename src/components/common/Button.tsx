@@ -6,13 +6,14 @@ type ButtonType = "text" | "icon";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   design?: CSSProp;
-  buttonType: ButtonType;
+  buttonType?: ButtonType;
 }
 
 const Button = (props: ButtonProps): ReactElement => {
-  console.log(props?.buttonType);
+  const btnType = props.buttonType || "text";
+
   return (
-    <BUTTON_Button {...props} onClick={props.onClick}>
+    <BUTTON_Button {...props} buttonType={btnType} onClick={props.onClick}>
       {props.children}
     </BUTTON_Button>
   );

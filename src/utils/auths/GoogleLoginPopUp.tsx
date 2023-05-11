@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { auth } from '@/utils/firebase/ClientApp';
 import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { useDispatch } from 'react-redux';
+import { UserActions } from '@/store/user/Slice';
 
 interface GoogleLoginPopUpProps {
   open: boolean;
@@ -8,6 +10,7 @@ interface GoogleLoginPopUpProps {
 }
 
 const GoogleLoginPopUp = (props: GoogleLoginPopUpProps) => {
+  const dispatch = useDispatch();
   useEffect(() => {
     if (!props.open) {
       return;
@@ -23,6 +26,7 @@ const GoogleLoginPopUp = (props: GoogleLoginPopUpProps) => {
         const user = result.user;
         // IdP data available using getAdditionalUserInfo(result)
         // ...
+        dispatch(UserActions.setUser(user));
         alert(`${user.displayName}님 로그인 축하합니당 (${token})`);
         props.close();
       })
@@ -31,7 +35,7 @@ const GoogleLoginPopUp = (props: GoogleLoginPopUpProps) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         // The email of the user's account used.
-        const email = error.customData.email;
+        const email = error.customData?.email;
         // The AuthCredential type that was used.
         const credential = GoogleAuthProvider.credentialFromError(error);
         // ...

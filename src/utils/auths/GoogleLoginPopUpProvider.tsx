@@ -4,12 +4,12 @@ import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { useDispatch } from 'react-redux';
 import { UserActions } from '@/store/user/Slice';
 
-interface GoogleLoginPopUpProps {
+interface GoogleLoginPopUpProviderProps {
   open: boolean;
   close: () => void;
 }
 
-const GoogleLoginPopUpProvider = (props: GoogleLoginPopUpProps) => {
+const GoogleLoginPopUpProvider = (props: GoogleLoginPopUpProviderProps) => {
   const dispatch = useDispatch();
   useEffect(() => {
     if (!props.open) {

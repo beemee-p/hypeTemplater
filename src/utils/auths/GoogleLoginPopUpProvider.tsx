@@ -9,7 +9,7 @@ interface GoogleLoginPopUpProps {
   close: () => void;
 }
 
-const GoogleLoginPopUp = (props: GoogleLoginPopUpProps) => {
+const GoogleLoginPopUpProvider = (props: GoogleLoginPopUpProps) => {
   const dispatch = useDispatch();
   useEffect(() => {
     if (!props.open) {
@@ -49,4 +49,4 @@ const GoogleLoginPopUp = (props: GoogleLoginPopUpProps) => {
   return <></>;
 };
 
-export default GoogleLoginPopUp;
+export default GoogleLoginPopUpProvider;

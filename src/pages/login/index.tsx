@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import Button from '@/components/common/Button';
-import GoogleLoginPopUp from '@/utils/auths/GoogleLoginPopUp';
+import GoogleLoginPopUpProvider from '@/utils/auths/GoogleLoginPopUpProvider';
 
 const Login = () => {
   const [signPopupOpen, setLoginPopupOpen] = useState<boolean>(false);
   return (
     <>
-      <GoogleLoginPopUp
+      <GoogleLoginPopUpProvider
         open={signPopupOpen}
         close={() => setLoginPopupOpen(false)}
       />

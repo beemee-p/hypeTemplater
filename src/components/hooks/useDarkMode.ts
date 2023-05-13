@@ -3,15 +3,19 @@ import { GlobalTheme, MainTheme } from "@/styles/GlobalTheme";
 
 const useDarkMode = () => {
   const [colorTheme, setColorTheme] = useState<MainTheme | null>(null);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   function setColorMode(mode: MainTheme) {
     if (mode === GlobalTheme.light) {
       document.body.dataset.theme = "light";
       window.localStorage.setItem("theme", "light");
+      setIsDarkMode(false);
     } else {
       document.body.dataset.theme = "dark";
       window.localStorage.setItem("theme", "dark");
+      setIsDarkMode(true);
     }
+
     setColorTheme(mode);
   }
 
@@ -31,7 +35,7 @@ const useDarkMode = () => {
       : setColorMode(GlobalTheme.light);
   }, []);
 
-  return { colorTheme, setToggleTheme };
+  return { isDarkMode, colorTheme, setToggleTheme };
 };
 
 export default useDarkMode;

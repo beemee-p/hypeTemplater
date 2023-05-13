@@ -1,25 +1,18 @@
 import { ReactElement, useContext } from "react";
-import Image from "next/image";
 import styled from "styled-components";
-import IconHamburger from "@/styles/image/icon_hamburger.png";
+import IconHamburger from "@/styles/image/icon_hamburger.svg";
 import IconSun from "@/styles/image/icon_sun.svg";
 import IconMoon from "@/styles/image/icon_moon.svg";
 import Button from "./Button";
 import { ThemeContext } from "@/pages/_app";
-import { GlobalTheme } from "@/styles/GlobalTheme";
 
 const Header = (): ReactElement => {
-  const { colorTheme, setToggleTheme } = useContext(ThemeContext);
+  const { isDarkMode, colorTheme, setToggleTheme } = useContext(ThemeContext);
 
   return (
     <DIV_Header>
       <Button className="header-menu" buttonType={"icon"}>
-        <Image
-          src={IconHamburger}
-          alt={"icon_hamburger"}
-          width={24}
-          height={20}
-        />
+        <IconHamburger color={colorTheme?.colors.gray1} />
       </Button>
 
       <div className="header-title">HYPE_BEE</div>
@@ -29,12 +22,11 @@ const Header = (): ReactElement => {
         buttonType={"icon"}
         onClick={() => setToggleTheme()}
       >
-        <Image
-          src={colorTheme === GlobalTheme.light ? IconMoon : IconSun}
-          alt={"icon_sun"}
-          width={28}
-          height={28}
-        />
+        {isDarkMode ? (
+          <IconMoon color={colorTheme?.colors.gray1} />
+        ) : (
+          <IconSun color={colorTheme?.colors.gray1} />
+        )}
       </Button>
     </DIV_Header>
   );
@@ -43,9 +35,15 @@ const Header = (): ReactElement => {
 const DIV_Header = styled.div`
   display: flex;
   justify-content: space-between;
+  background: ${(props) => props.theme.colors?.gray12};
 
   .header-menu {
     padding: 10px;
+
+    > svg {
+      width: 30px;
+      height: 30px;
+    }
   }
 
   .header-title {
@@ -56,7 +54,6 @@ const DIV_Header = styled.div`
     height: 56px;
     font-size: 30px;
     color: ${(props) => props.theme.colors?.gray1};
-    background: ${(props) => props.theme.colors?.gray12};
   }
 
   .theme-btn {

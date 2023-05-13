@@ -25,7 +25,7 @@ const PortfolioListPage = (props: PortfolioListProps): ReactElement => {
             />
           </Link>
           <h3>{portfolio.title}</h3>
-          <p>{portfolio.user.name}</p>
+          <p>{portfolio.user.userRole}</p>
         </ARTICLE_Card>
       ))}
     </section>

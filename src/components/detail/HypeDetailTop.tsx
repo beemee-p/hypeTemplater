@@ -11,7 +11,7 @@ const HypeDetailTop = (props: HypeDetailTopProps): ReactElement => {
     <DIV_HypeDetailTop>
       <div className="top-category">아트워크&디자인, 영상</div>
       <div className="top-title">{props.portfolio.title}</div>
-      <div className="top-user">{props.portfolio?.user.name}</div>
+      <div className="top-user">{props.portfolio?.user.userRole}</div>
     </DIV_HypeDetailTop>
   );
 };

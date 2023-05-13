@@ -12,7 +12,7 @@ const Header = (): ReactElement => {
   return (
     <DIV_Header>
       <Button className="header-menu" buttonType={"icon"}>
-        <IconHamburger color={colorTheme?.colors.gray1} />
+        <IconHamburger width={28} height={28} color={colorTheme?.colors.gray1} />
       </Button>
 
       <div className="header-title">HYPE_BEE</div>
@@ -39,11 +39,6 @@ const DIV_Header = styled.div`
 
   .header-menu {
     padding: 10px;
-
-    > svg {
-      width: 30px;
-      height: 30px;
-    }
   }
 
   .header-title {

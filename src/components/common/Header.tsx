@@ -12,7 +12,11 @@ const Header = (): ReactElement => {
   return (
     <DIV_Header>
       <Button className="header-menu" buttonType={"icon"}>
-        <IconHamburger width={28} height={28} color={colorTheme?.colors.gray1} />
+        <IconHamburger
+          width={25}
+          height={25}
+          color={colorTheme?.colors.cyan12}
+        />
       </Button>
 
       <div className="header-title">HYPE_BEE</div>
@@ -23,9 +27,9 @@ const Header = (): ReactElement => {
         onClick={() => setToggleTheme()}
       >
         {isDarkMode ? (
-          <IconMoon color={colorTheme?.colors.gray1} />
+          <IconMoon width={25} height={25} color={colorTheme?.colors.cyan12} />
         ) : (
-          <IconSun color={colorTheme?.colors.gray1} />
+          <IconSun width={25} height={25} color={colorTheme?.colors.cyan12} />
         )}
       </Button>
     </DIV_Header>
@@ -35,7 +39,7 @@ const Header = (): ReactElement => {
 const DIV_Header = styled.div`
   display: flex;
   justify-content: space-between;
-  background: ${(props) => props.theme.colors?.gray12};
+  background: ${(props) => props.theme.colors?.cyan3};
 
   .header-menu {
     padding: 10px;
@@ -48,7 +52,7 @@ const DIV_Header = styled.div`
     width: 100%;
     height: 56px;
     font-size: 30px;
-    color: ${(props) => props.theme.colors?.gray1};
+    color: ${(props) => props.theme.colors?.cyan12};
   }
 
   .theme-btn {

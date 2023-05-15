@@ -42,22 +42,21 @@ const whiteButtonStyle = css`
 `;
 
 const grayButtonStyle = css`
-  background-color: #696969;
+  background: ${(props) => props.theme.colors?.mauve9};
   color: #ffffff;
 
   &:hover {
-    background-color: #ffffff;
-    color: #696969;
+    background: #ffffff;
+    color: ${(props) => props.theme.colors?.mauve9};
   }
 `;
 
 const cyanButtonStyle = css`
-  background-color: #10afa4;
+  background: ${(props) => props.theme.colors?.cyan8};
   color: #ffffff;
 
   &:hover {
-    background-color: #ffffff;
-    color: #696969;
+    background: ${(props) => props.theme.colors?.cyan11};
   }
 `;
 

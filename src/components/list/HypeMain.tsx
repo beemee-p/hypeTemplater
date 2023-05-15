@@ -57,12 +57,12 @@ const DIV_HypeMain = styled.div`
 
 const DIV_HypeContent = styled.div`
   padding: 0 64px;
-  background: #07303b;
+  background: ${(props) => props.theme.colors?.cyan3};
 
   > h1 {
     margin: 0;
     padding: 120px 0 20px;
-    color: #ffffff;
+    color: ${(props) => props.theme.colors?.cyan12};
     font-size: 40px;
     line-height: 56px;
     letter-spacing: -0.5px;
@@ -70,7 +70,7 @@ const DIV_HypeContent = styled.div`
   }
 
   > h5 {
-    color: #ffffff;
+    color: ${(props) => props.theme.colors?.cyan12};
     font-size: 20px;
     letter-spacing: -0.5px;
     font-weight: 600;

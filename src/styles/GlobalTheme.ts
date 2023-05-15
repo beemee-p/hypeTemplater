@@ -1,29 +1,37 @@
 import {
-  gray,
   blue,
   red,
   green,
-  grayDark,
+  cyan,
   blueDark,
   redDark,
   greenDark,
+  cyanDark,
+  cyanDarkA,
+  cyanA,
+  mauve,
+  mauveDark,
 } from "@radix-ui/colors";
 
 const light = {
   colors: {
-    ...gray,
+    ...mauve,
     ...blue,
     ...red,
     ...green,
+    ...cyan,
+    ...cyanA,
   },
 };
 
 const dark = {
   colors: {
-    ...grayDark,
+    ...mauveDark,
     ...blueDark,
     ...redDark,
     ...greenDark,
+    ...cyanDark,
+    ...cyanDarkA,
   },
 };
 
